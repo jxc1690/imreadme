@@ -8,11 +8,11 @@ const (
 	GroupImg                     //图片 msg String
 	GroupVideo                   //视频 msg String
 	GroupProxy                   //转发消息 msg Proxy
+	GroupRet                     //撤回 msg uint
 )
 
 type Group struct {
-	Type GroupConst `json:"type"` //消息类型
-	Form uint       `json:"form"` //来自
-	To   uint       `json:"to"`   //发送到
-	Msg  any        `json:"msg"`  //消息内容
+	Form uint `json:"form"` //来自
+	To   uint `json:"to"`   //发送到
+	Msg  any  `json:"msg"`  //消息内容
 }

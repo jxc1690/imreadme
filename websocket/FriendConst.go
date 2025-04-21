@@ -8,11 +8,11 @@ const (
 	FriendImg                      //图片 msg String
 	FriendVideo                    //视频 msg String
 	FriendProxy                    //转发消息 msg Proxy
+	FriendRet                      //撤回 msg uint
 )
 
 type Friend struct {
-	Type FriendConst `json:"type"` //消息类型
-	Form uint        `json:"form"` //来自
-	To   uint        `json:"to"`   //发送到
-	Msg  any         `json:"msg"`  //消息内容
+	Form uint `json:"form"` //来自
+	To   uint `json:"to"`   //发送到
+	Msg  any  `json:"msg"`  //消息内容
 }
