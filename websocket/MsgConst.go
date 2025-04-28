@@ -29,7 +29,7 @@ type TMsg struct {
 	TypeCode  MsgConst  `json:"typecode,omitempty"`  //消息类型
 	TypeCode2 uint      `json:"typecode2,omitempty"` //消息类型 FriendConst GroupConst ErrConst NotifyConst
 	T         time.Time `json:"t"`                   //时间
-	UserID    uint      `json:"userid,omitempty"`    //来自
+	FromID    uint      `json:"fromid,omitempty"`    //来自
 	ToID      uint      `json:"toid,omitempty"`      //发送到
 	ID        uint      `json:"id,omitempty"`        //消息ID
 	Msg       MsgStr    `json:"msg,omitempty"`       //具体消息 aes加密后的base64
