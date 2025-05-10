@@ -1,4 +1,4 @@
-package websocket
+package socketMsg
 
 type GroupConst uint
 

@@ -1,12 +1,13 @@
-package websocket
+package socketMsg
 
 type NotifyConst uint
 
 const (
-	NotifyFriend  NotifyConst = iota //添加好友请求 msg NotifyADD
-	NotifyGroup                      //群邀请 msg NotifyADD
-	NotifyGConfig                    //全局设置变更 收到该消息之后需要重新拉取设置 msg nil
-	NotifyPass                       //通过 msg NotifyPassT
+	NotifyFriend   NotifyConst = iota //添加好友请求 msg NotifyADD
+	NotifyGroup                       //群邀请 msg NotifyADD
+	NotifyGroupAdd                    //群申请 msg NotifyADD
+	NotifyGConfig                     //全局设置变更 收到该消息之后需要重新拉取设置 msg nil
+	NotifyPass                        //通过 msg NotifyPassT
 )
 
 type Notify struct {
@@ -21,8 +22,8 @@ type NotifyADD struct {
 type FGConst uint
 
 const (
-	ForGFriend FGConst = iota
-	ForGGroup
+	FGFriend FGConst = iota
+	FGGroup
 )
 
 type NotifyPassT struct {
