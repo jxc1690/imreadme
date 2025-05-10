@@ -1,4 +1,4 @@
-package socketMsg
+package websocket
 
 type NotifyConst uint
 
@@ -18,6 +18,14 @@ type NotifyADD struct {
 	GroupID uint   `json:"groupID,omitempty"` //邀请加群ID
 }
 
+type FGConst uint
+
+const (
+	ForGFriend FGConst = iota
+	ForGGroup
+)
+
 type NotifyPassT struct {
-	ID uint //model.FriendDelay
+	ID   uint    //model.FriendDelay
+	Type FGConst //friend or group
 }

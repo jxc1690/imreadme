@@ -1,4 +1,4 @@
-package socketMsg
+package websocket
 
 import "time"
 
@@ -24,14 +24,18 @@ const (
 		"msg": "string"
 	}
 */
+type TMsgBase struct {
+	FromID uint `json:"fromid,omitempty"` //来自
+	ToID   uint `json:"toid,omitempty"`   //发送到
+	ID     uint `json:"id,omitempty"`     //消息ID
+}
+
 // TMsg 消息结构体
 type TMsg struct {
+	TMsgBase
 	TypeCode  MsgConst  `json:"typecode,omitempty"`  //消息类型
 	TypeCode2 uint      `json:"typecode2,omitempty"` //消息类型 FriendConst GroupConst ErrConst NotifyConst
 	T         time.Time `json:"t"`                   //时间
-	FromID    uint      `json:"fromid,omitempty"`    //来自
-	ToID      uint      `json:"toid,omitempty"`      //发送到
-	ID        uint      `json:"id,omitempty"`        //消息ID
 	Msg       MsgStr    `json:"msg,omitempty"`       //具体消息 aes加密后的base64
 }
 
