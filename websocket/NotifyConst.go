@@ -10,10 +10,6 @@ const (
 	NotifyPass                        //通过 msg NotifyPassT
 )
 
-type Notify struct {
-	Msg any `json:"msg,omitempty"` //消息内容
-}
-
 type NotifyADD struct {
 	Msg     string `json:"msg"`               //消息内容
 	GroupID uint   `json:"groupID,omitempty"` //邀请加群ID
@@ -27,6 +23,6 @@ const (
 )
 
 type NotifyPassT struct {
-	ID   uint    //model.FriendDelay
+	ID   uint    //model.FriendDelay model.GroupDelay
 	Type FGConst //friend or group
 }

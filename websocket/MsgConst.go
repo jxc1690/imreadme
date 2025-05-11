@@ -39,18 +39,3 @@ type TMsg struct {
 	T         time.Time `json:"t"`             //时间
 	Msg       MsgStr    `json:"msg,omitempty"` //具体消息 aes加密后的base64
 }
-
-// ProxyConst 代理消息类型
-//type ProxyConst uint
-
-//// 转发消息类型
-//const (
-//	ProxyFriend ProxyConst = iota //好友消息
-//	ProxyGroup                    //群组消息
-//)
-
-// Proxy 转发结构体
-type Proxy struct {
-	//TypeCode MsgConst `json:"typecode,omitempty"`
-	Msg []TMsg `json:"msgs"`
-}
