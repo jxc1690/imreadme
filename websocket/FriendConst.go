@@ -3,12 +3,14 @@ package socketMsg
 type FriendConst uint
 
 const (
-	FriendStr   FriendConst = iota //文本 FriendMsg
-	FriendMis                      //音频 FriendMsg
-	FriendImg                      //图片 FriendMsg
-	FriendVideo                    //视频 FriendMsg
-	FriendProxy                    //转发消息 FriendProxyMsg
-	FriendRet                      //撤回 FriendRetMsg
+	FriendStr    FriendConst = iota //文本 FriendMsg
+	FriendMis                       //音频 FriendMsg
+	FriendImg                       //图片 FriendMsg
+	FriendVideo                     //视频 FriendMsg
+	FriendProxy                     //转发消息 FriendProxyMsg
+	FriendRet                       //撤回 FriendRetMsg
+	FriendFriend                    //好友名片 FriendFriendMsg
+	FriendNotify                    //通知 FriendMsg
 )
 
 type Friend struct {
@@ -31,4 +33,9 @@ type FriendRetMsg struct {
 type FriendProxyMsg struct {
 	Proxy []TMsg `json:"proxy"`           //转发消息``
 	Other any    `json:"other,omitempty"` //其它 前端自定义
+}
+
+type FriendFriendMsg struct {
+	UserID uint `json:"user_id"`         //用户ID
+	Other  any  `json:"other,omitempty"` //其它 前端自定义 (带上头像 名称)
 }

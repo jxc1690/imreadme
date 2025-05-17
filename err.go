@@ -26,8 +26,9 @@ const (
 const (
 	ErrFriend     ResErr = iota + 300 //添加好友失败
 	ErrFriendOver                     //已经是好友
-	ErrFriendMore                     //好友已满
+	ErrFriendMore                     //已有好友添加记录
 )
 const (
-	ErrGroup ResErr = iota + 400 //群组错误
+	ErrGroup      ResErr = iota + 400 //群组错误
+	ErrGroupWhere                     //群组不存在
 )

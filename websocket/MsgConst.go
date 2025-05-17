@@ -8,9 +8,9 @@ type MsgConst uint
 // 消息类型常量
 const (
 	MsgErr    MsgConst = iota //ping消息
-	MsgFriend                 //好友消息
-	MsgGroup                  //群组消息
-	MsgNotify                 //通知 添加好友请求 群邀请等
+	MsgFriend                 //好友消息 FriendConst
+	MsgGroup                  //群组消息 GroupConst
+	MsgNotify                 //通知 添加好友请求 群邀请等 NotifyConst
 )
 
 /*
