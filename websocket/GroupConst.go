@@ -9,6 +9,7 @@ const (
 	GroupVideo                   //视频 GroupMsg
 	GroupProxy                   //转发消息 GroupProxyMsg
 	GroupRet                     //撤回  GroupRetMsg
+	GroupFile                    //文件 GroupMsg
 )
 
 type Group struct {

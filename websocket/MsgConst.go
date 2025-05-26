@@ -11,6 +11,7 @@ const (
 	MsgFriend                 //好友消息 FriendConst
 	MsgGroup                  //群组消息 GroupConst
 	MsgNotify                 //通知 添加好友请求 群邀请等 NotifyConst
+	MsgProxy                  //消息转发
 )
 
 /*

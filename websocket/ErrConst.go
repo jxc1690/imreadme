@@ -3,7 +3,7 @@ package socketMsg
 type ErrConst uint
 
 const (
-	ErrAny ErrConst = iota //任何错误都可能
+	ErrAny ErrConst = iota //任何错误都可能 Err
 )
 
 type Err struct {

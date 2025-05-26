@@ -54,7 +54,26 @@ func NewMstT[TypeCode2 TypeCode2Any](typeCode1 MsgConst, typeCode2 TypeCode2, d 
 	return ret, nil
 }
 
+func NewErr(msg TMsg, code ErrConst, sendmsg any) (TMsg, error) {
+	return NewMstT(
+		MsgErr,
+		code,
+		TMsgBase{
+			ToID: msg.FromID,
+		},
+		Err{
+			LastMsg: msg,
+			Msg:     sendmsg,
+		},
+	)
+}
 func (m MsgStr) String() string {
 	s, _ := utils.AesBase64Decrypt(string(m), global.G_CONFIG.Gin.WebSocketKey)
 	return string(s)
+}
+
+func (m MsgStr) ToFriendCall() (ret FriendCall, err error) {
+	s := []byte(m.String())
+	err = json.Unmarshal(s, &ret)
+	return
 }
