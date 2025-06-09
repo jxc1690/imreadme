@@ -28,7 +28,7 @@ const (
 type TMsgBase struct {
 	FromID  uint `json:"fromid,omitempty"`  //来自
 	ToID    uint `json:"toid,omitempty"`    //发送到
-	GroupID uint `json:"gourpid,omitempty"` //相关群组ID
+	GroupID uint `json:"groupID,omitempty"` //相关群组ID
 	ID      uint `json:"id,omitempty"`      //消息ID
 }
 

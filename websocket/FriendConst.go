@@ -34,8 +34,10 @@ const (
 
 type FriendCall struct {
 	Apply   CallConst `json:"apply,omitempty"` //申请结果
+	ID      uint      `json:"ID,omitempty"`
 	Room    string    `json:"room,omitempty"`
-	RoomMsg any       `json:"roomMsg,omitempty"`
+	Token   string    `json:"token,omitempty"`
+	RoomMsg any       `json:"roomMsg"`
 }
 
 type FriendMsg struct {

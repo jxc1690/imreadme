@@ -35,12 +35,41 @@ func NewMsgStr[T MsgStrT](str T) (MsgStr, error) {
 	}
 }
 
+func NewMsgStrNo[T MsgStrT](str T) (MsgStr, error) {
+	switch v := any(str).(type) {
+	case string:
+		return MsgStr(v), nil
+	case []byte:
+		return MsgStr(v), nil
+	default:
+		b, err := json.Marshal(v)
+		if err != nil {
+			return "", err
+		}
+		return MsgStr(b), nil
+	}
+}
+
 type TypeCode2Any interface {
 	NotifyConst | GroupConst | FriendConst | ErrConst
 }
 
 func NewMstT[TypeCode2 TypeCode2Any](typeCode1 MsgConst, typeCode2 TypeCode2, d TMsgBase, msg any) (TMsg, error) {
 	m, err := NewMsgStr(msg)
+	if err != nil {
+		return TMsg{}, err
+	}
+	ret := TMsg{
+		TMsgBase:  d,
+		TypeCode:  typeCode1,
+		TypeCode2: uint(typeCode2),
+		T:         time.Now(),
+		Msg:       m,
+	}
+	return ret, nil
+}
+func NewMstTNo[TypeCode2 TypeCode2Any](typeCode1 MsgConst, typeCode2 TypeCode2, d TMsgBase, msg any) (TMsg, error) {
+	m, err := NewMsgStrNo(msg)
 	if err != nil {
 		return TMsg{}, err
 	}
@@ -73,7 +102,8 @@ func (m MsgStr) String() string {
 }
 
 func (m MsgStr) ToFriendCall() (ret FriendCall, err error) {
-	s := []byte(m.String())
-	err = json.Unmarshal(s, &ret)
+	//s := []byte(m.String())
+	//err = json.Unmarshal(s, &ret)
+	err = json.Unmarshal([]byte(m), &ret)
 	return
 }
