@@ -15,6 +15,7 @@ const (
 	FriendApplyCall                    //语音通话 nil
 	FriendApplyRes                     //申请返回 FriendCall.Apply
 	FriendCallRoom                     //发送房间号 FriendCall.Room
+	FriendCallStop                     //结束通话 FriendCall.Apply
 )
 
 type Friend struct {
@@ -30,6 +31,10 @@ const (
 	CallFail                     //失败
 	CallRefuse                   //拒绝
 	CallBusy                     //忙碌
+
+	CallFromStop  //发起方中断
+	CallToStop    //接收方中断
+	CallOtherStop //异常中断
 )
 
 type FriendCall struct {
@@ -37,7 +42,7 @@ type FriendCall struct {
 	ID      uint      `json:"ID,omitempty"`
 	Room    string    `json:"room,omitempty"`
 	Token   string    `json:"token,omitempty"`
-	RoomMsg any       `json:"roomMsg"`
+	RoomMsg any       `json:"roomMsg,omitempty"`
 }
 
 type FriendMsg struct {

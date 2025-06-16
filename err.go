@@ -24,9 +24,13 @@ const (
 )
 
 const (
-	ErrFriend     ResErr = iota + 300 //添加好友失败
-	ErrFriendOver                     //已经是好友
-	ErrFriendMore                     //已有好友添加记录
+	ErrFriend      ResErr = iota + 300 //添加好友失败
+	ErrFriendOver                      //已经是好友
+	ErrFriendMore                      //已有好友添加记录
+	ErrCreateRoom                      //创建房间失败
+	ErrCreateToken                     //创建token失败
+	ErrNoRoom                          //房间不存在
+	ErrNoRoomUser                      //房间用户不存在
 )
 const (
 	ErrGroup      ResErr = iota + 400 //群组错误
